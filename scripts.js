@@ -73,7 +73,9 @@ sign_button.addEventListener('click', () =>{
 })
 
 data_point.addEventListener('click', () =>{
-  console.log(data_point.TEXT_NODE)
+  currentOperand = currentOperand + '.'
+
+  updateDisplay()
 })
 
 checkbox.addEventListener('click', () =>{
