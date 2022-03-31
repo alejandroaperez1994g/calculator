@@ -65,6 +65,9 @@ Array.from(operator_button).forEach((button) => {
 data_equals.addEventListener("click", () => {
   calculate();
   updateDisplay();
+
+  if (currentOperand === "" || previousOperand === "") return;
+
   previousElementDisplay.textContent = "";
   current_operation.push("=", currentOperand);
   logs.push(current_operation);
