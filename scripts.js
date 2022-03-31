@@ -62,12 +62,9 @@ data_clear_all.addEventListener("click", () => {
 
 sign_button.addEventListener('click', () =>{
 
-  if(currentOperand < 0){
-    currentOperand = currentOperand * -1
-  }else if(currentOperand > 0){
+  if(currentOperand < 0 || currentOperand > 0){
     currentOperand = currentOperand * -1
   }
-
   updateDisplay();
   
 })
