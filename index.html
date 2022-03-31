@@ -14,8 +14,17 @@
 
     <div class="main">
         <div class="main-top">
-            <!-- puntitos -->
-            <checkbox-component></checkbox-component>
+            <div id="close-buttons">
+                <button class="close">x</button>
+                <button class="minimize">-</button>
+                <button class="expand"></button>
+            </div>
+            
+            <label id="check-label">
+                <input type="checkbox" id="checkbox">
+                <span></span>
+            </label>
+            
         </div>
         <div class="output">
             <div class="previous-operand"></div>
@@ -48,7 +57,7 @@
             </div>
             <div class='rows'>
                 <button data-number>0</button>
-                <button data-number>.</button>
+                <button data-pointer>.</button>
                 <button data-clear>C</button>
                 <button data-equal>=</button>
             </div>
