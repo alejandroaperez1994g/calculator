@@ -118,6 +118,7 @@ label input:checked ~ span{
   align-items: flex-end;
   align-content: center;
   background-color: #f4fdfc;
+  margin-right: 25px;
 }
 
 .previous-operand {
@@ -128,7 +129,6 @@ label input:checked ~ span{
   align-items: flex-start;
   align-content: center;
   font-size: 35px;
-  margin-right: 25px;
 }
 
 .current-operand {
@@ -139,7 +139,6 @@ label input:checked ~ span{
   align-items: flex-end;
   align-content: center;
   font-size: 60px;
-  margin-right: 25px;
   margin-bottom: 10px;
 }
 
@@ -175,4 +174,28 @@ label input:checked ~ span{
 
 .rows button:hover {
   transform: scale(1.2);
+}
+
+
+.logs{
+  margin-right: 10px;
+  height: 60%;
+  min-width: 200px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+  background-color: white;
+  display: none;
+}
+
+.logs_windows{
+  list-style: none;
+}
+
+li{
+  padding-top: 5px;
+  margin-top: 5px;
+  border-bottom: 1px solid #ccc;
+  font-weight: bold;
+  cursor: pointer;
 }

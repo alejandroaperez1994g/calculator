@@ -16,6 +16,7 @@ let data_point = document.querySelector("[data-pointer]");
 let checkbox = document.querySelector("#checkbox");
 let expand_logs = document.querySelector(".expand");
 let log_windows = document.querySelector(".logs_windows");
+let log_box = document.querySelector('.logs')
 
 let main = document.querySelector(".main");
 let main_top = document.querySelector(".main-top");
@@ -31,6 +32,9 @@ expand_logs.addEventListener("click", () => {
     list.textContent = log.join(" ");
     log_windows.appendChild(list);
   });
+
+  (logs.length > 0) ? log_box.style.display = 'block' : alert('No hay operaciones para mostrar')
+  
 });
 
 Array.from(number_button).forEach((button) => {
@@ -107,6 +111,8 @@ checkbox.addEventListener("click", () => {
     main.style.backgroundColor = "#2E3851";
     main_top.style.backgroundColor = "#212C42";
     output.style.backgroundColor = "#212C42";
+    log_box.style.backgroundColor = "#2E3851";
+    log_box.style.color = "white";
 
     Array.from(number_button).forEach((button) => {
       button.style.color = "white";
@@ -130,6 +136,9 @@ checkbox.addEventListener("click", () => {
     main.style.backgroundColor = "white";
     main_top.style.backgroundColor = "#f4fdfc";
     output.style.backgroundColor = "#f4fdfc";
+    log_box.style.backgroundColor = "white";
+    log_box.style.color = "black";
+
     Array.from(number_button).forEach((button) => {
       button.style.color = "black";
     });
