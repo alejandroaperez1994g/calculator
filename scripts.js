@@ -18,6 +18,7 @@ let expand_logs = document.querySelector(".expand");
 let log_windows = document.querySelector(".logs_windows");
 let log_box = document.querySelector(".logs");
 let minimice_log_box = document.querySelector(".minimize");
+let clear_button_logs = document.querySelector(".clear_button button");
 
 let main = document.querySelector(".main");
 let main_top = document.querySelector(".main-top");
@@ -30,18 +31,18 @@ minimice_log_box.addEventListener("click", () => {
   }
 });
 
-expand_logs.addEventListener("click", () => {
+clear_button_logs.addEventListener("click", () => {
   while (log_windows.firstChild) {
     log_windows.removeChild(log_windows.firstChild);
   }
-  logs.forEach((log) => {
-    let list = document.createElement("li");
-    list.textContent = log.join(" ");
-    log_windows.appendChild(list);
-  });
+});
+
+expand_logs.addEventListener("click", () => {
+  updateLogs();
 
   logs.length > 0
-    ? (log_box.style.display = "block")
+    ? (log_box.style.cssText =
+        "display: flex;flex-direction: column;justify-content: space-between;")
     : alert("No hay operaciones para mostrar");
 });
 
@@ -84,6 +85,7 @@ data_equals.addEventListener("click", () => {
   current_operation.push("=", currentOperand);
   logs.push(current_operation);
   current_operation = [];
+  updateLogs();
   console.log(logs);
 });
 
@@ -195,4 +197,15 @@ function calculate() {
       currentOperand = parseFloat(previousOperand) % parseFloat(currentOperand);
       break;
   }
+}
+
+function updateLogs() {
+  while (log_windows.firstChild) {
+    log_windows.removeChild(log_windows.firstChild);
+  }
+  logs.forEach((log) => {
+    let list = document.createElement("li");
+    list.textContent = log.join(" ");
+    log_windows.appendChild(list);
+  });
 }
