@@ -16,12 +16,19 @@ let data_point = document.querySelector("[data-pointer]");
 let checkbox = document.querySelector("#checkbox");
 let expand_logs = document.querySelector(".expand");
 let log_windows = document.querySelector(".logs_windows");
-let log_box = document.querySelector('.logs')
+let log_box = document.querySelector(".logs");
+let minimice_log_box = document.querySelector(".minimize");
 
 let main = document.querySelector(".main");
 let main_top = document.querySelector(".main-top");
 let output = document.querySelector(".output");
 let check_label = document.querySelector("#check-label");
+
+minimice_log_box.addEventListener("click", () => {
+  if (log_box.style.display === "block") {
+    log_box.style.display = "none";
+  }
+});
 
 expand_logs.addEventListener("click", () => {
   while (log_windows.firstChild) {
@@ -33,8 +40,9 @@ expand_logs.addEventListener("click", () => {
     log_windows.appendChild(list);
   });
 
-  (logs.length > 0) ? log_box.style.display = 'block' : alert('No hay operaciones para mostrar')
-  
+  logs.length > 0
+    ? (log_box.style.display = "block")
+    : alert("No hay operaciones para mostrar");
 });
 
 Array.from(number_button).forEach((button) => {
