@@ -199,3 +199,37 @@ li {
   font-weight: bold;
   cursor: pointer;
 }
+
+.logs {
+  margin-right: 10px;
+  height: 60%;
+  min-width: 200px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding: 5px;
+  background-color: white;
+  display: none;
+}
+
+.logs_windows {
+  list-style: none;
+}
+
+.clear_button {
+  width: 100%;
+}
+
+.clear_button button {
+  width: 100%;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  border: 2px solid black;
+  background-color: white;
+  cursor: pointer;
+}
+
+.clear_button button:hover {
+  background-color: rgb(226, 226, 226);
+}
