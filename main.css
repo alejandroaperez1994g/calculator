@@ -239,8 +239,7 @@ li {
 @media screen and (max-width:434px){
   .main{
     width: 90vw;
-    height: 90vh;
-  }
+}
   #close-buttons{
     visibility: hidden;
   }
