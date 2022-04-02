@@ -259,7 +259,13 @@ li {
   }
 
   .output {
-    min-height: 200px;
+    min-height: 165px;
     
+  }
+}
+
+@media screen and (min-width:435px) and (max-width:1200px){
+  .main{
+    width: 400px;
   }
 }
