@@ -26,7 +26,7 @@ let output = document.querySelector(".output");
 let check_label = document.querySelector("#check-label");
 
 minimice_log_box.addEventListener("click", () => {
-  if (log_box.style.display === "block") {
+  if (log_box.style.display === "flex") {
     log_box.style.display = "none";
   }
 });
@@ -35,6 +35,8 @@ clear_button_logs.addEventListener("click", () => {
   while (log_windows.firstChild) {
     log_windows.removeChild(log_windows.firstChild);
   }
+  logs = [];
+  log_box.style.display = "none";
 });
 
 expand_logs.addEventListener("click", () => {
@@ -170,6 +172,64 @@ checkbox.addEventListener("click", () => {
   }
 });
 
+window.addEventListener("keydown", (event) => {
+  if (event.code == "Digit8" && event.shiftKey)
+    document.getElementById("buttonTimes").click();
+  else if (event.code == "Digit8") document.getElementById("number8").click();
+
+  if (event.code == "Digit5" && event.shiftKey)
+    document.getElementById("buttonModular").click();
+  else if (event.code == "Digit5") document.getElementById("number5").click();
+
+  if (event.code == "Backspace" && event.shiftKey)
+    document.getElementById("buttonAllClear").click();
+  else if (event.code == "Backspace")
+    document.getElementById("buttonClear").click();
+
+  switch (event.code) {
+    case "Digit1":
+      document.getElementById("number1").click();
+      break;
+    case "Digit2":
+      document.getElementById("number2").click();
+      break;
+    case "Digit3":
+      document.getElementById("number3").click();
+      break;
+    case "Digit4":
+      document.getElementById("number4").click();
+      break;
+    case "Digit6":
+      document.getElementById("number6").click();
+      break;
+    case "Digit7":
+      document.getElementById("number7").click();
+      break;
+    case "Digit9":
+      document.getElementById("number9").click();
+      break;
+    case "Digit0":
+      document.getElementById("number0").click();
+      break;
+    case "Period":
+      document.getElementById("period").click();
+      break;
+
+    case "Minus":
+      document.getElementById("buttonMinus").click();
+      break;
+    case "Equal":
+      document.getElementById("buttonSum").click();
+      break;
+    case "Enter":
+      document.getElementById("buttonEqual").click();
+      break;
+    case "Slash":
+      document.getElementById("buttonDivide").click();
+      break;
+  }
+});
+
 function appendNumber(number) {
   currentOperand += number.toString();
   current_operation.push(number);
@@ -194,7 +254,10 @@ function calculate() {
       currentOperand = parseFloat(previousOperand) / parseFloat(currentOperand);
       break;
     case "%":
-      currentOperand = parseFloat(previousOperand) % parseFloat(currentOperand);
+      currentOperand =
+        (parseFloat(previousOperand) * parseFloat(currentOperand)) / 100;
+      break;
+    default:
       break;
   }
 }
