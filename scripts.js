@@ -2,6 +2,10 @@ let previousOperand = "";
 let currentOperand = "";
 let operation = undefined;
 let logs = [];
+if (localStorage.length !== 0) {
+  logs = JSON.parse(localStorage.getItem("calculatorLogs"));
+}
+
 let current_operation = [];
 
 let currentElementDisplay = document.querySelector(".current-operand");
@@ -36,16 +40,18 @@ clear_button_logs.addEventListener("click", () => {
     log_windows.removeChild(log_windows.firstChild);
   }
   logs = [];
+  deleteLogs();
   log_box.style.display = "none";
 });
 
 expand_logs.addEventListener("click", () => {
-  updateLogs();
-
-  logs.length > 0
-    ? (log_box.style.cssText =
-        "display: flex;flex-direction: column;justify-content: space-between;")
-    : alert("No hay operaciones para mostrar");
+  if (localStorage.length > 0) {
+    log_box.style.cssText =
+      "display: flex;flex-direction: column;justify-content: space-between;";
+    updateLogs();
+  } else {
+    alert("No hay operaciones para mostrar");
+  }
 });
 
 Array.from(number_button).forEach((button) => {
@@ -86,9 +92,10 @@ data_equals.addEventListener("click", () => {
   previousElementDisplay.textContent = "";
   current_operation.push("=", currentOperand);
   logs.push(current_operation);
+  backupLogs();
   current_operation = [];
-  updateLogs();
   console.log(logs);
+  updateLogs();
 });
 
 data_clear.addEventListener("click", () => {
@@ -266,9 +273,18 @@ function updateLogs() {
   while (log_windows.firstChild) {
     log_windows.removeChild(log_windows.firstChild);
   }
-  logs.forEach((log) => {
+
+  JSON.parse(localStorage.getItem("calculatorLogs")).forEach((log) => {
     let list = document.createElement("li");
     list.textContent = log.join(" ");
     log_windows.appendChild(list);
+    console.log(log_windows.childNodes);
   });
+}
+
+function backupLogs() {
+  localStorage.setItem("calculatorLogs", JSON.stringify(logs));
+}
+function deleteLogs() {
+  localStorage.removeItem("calculatorLogs");
 }
