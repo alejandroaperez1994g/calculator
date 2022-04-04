@@ -94,7 +94,6 @@ data_equals.addEventListener("click", () => {
   logs.push(current_operation);
   backupLogs();
   current_operation = [];
-  console.log(logs);
   updateLogs();
 });
 
@@ -278,7 +277,6 @@ function updateLogs() {
     let list = document.createElement("li");
     list.textContent = log.join(" ");
     log_windows.appendChild(list);
-    console.log(log_windows.childNodes);
   });
 }
 
