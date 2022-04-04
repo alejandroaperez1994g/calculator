@@ -242,26 +242,36 @@ function appendNumber(number) {
 }
 
 function updateDisplay() {
-  currentElementDisplay.textContent = currentOperand;
+  currentElementDisplay.textContent = currentOperand.toString();
 }
 
 function calculate() {
   switch (operation) {
     case "+":
-      currentOperand = parseFloat(previousOperand) + parseFloat(currentOperand);
+      currentOperand = (
+        parseFloat(previousOperand) + parseFloat(currentOperand)
+      ).toString();
       break;
     case "-":
-      currentOperand = parseFloat(previousOperand) - parseFloat(currentOperand);
+      currentOperand = (
+        parseFloat(previousOperand) - parseFloat(currentOperand)
+      ).toString();
       break;
     case "x":
-      currentOperand = parseFloat(previousOperand) * parseFloat(currentOperand);
+      currentOperand = (
+        parseFloat(previousOperand) * parseFloat(currentOperand)
+      ).toString();
       break;
     case "/":
-      currentOperand = parseFloat(previousOperand) / parseFloat(currentOperand);
+      currentOperand = (
+        parseFloat(previousOperand) / parseFloat(currentOperand)
+      ).toString();
       break;
     case "%":
-      currentOperand =
-        (parseFloat(previousOperand) * parseFloat(currentOperand)) / 100;
+      currentOperand = (
+        (parseFloat(previousOperand) * parseFloat(currentOperand)) /
+        100
+      ).toString();
       break;
     default:
       break;
